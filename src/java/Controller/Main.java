@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Controller;
 
 import Beans.User;
@@ -23,9 +22,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Main", urlPatterns = {"/Main"})
 public class Main extends HttpServlet {
-    
+
     HttpSession session;
-   
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,15 +32,21 @@ public class Main extends HttpServlet {
         String action = request.getParameter("action");
         String page = null;
         User user = null;
+
         request.setAttribute("user", user);
-        if (action == null || session.equals(null)) {
+        if (action == null || action.isEmpty()) {
             request.getRequestDispatcher("Index.jsp").forward(request, response);
             return;
-        }else{
-            if(action.equals("logout")){
+        } else {
+            if (action.equals("logout")) {
                 session.invalidate();
-                response.sendRedirect("Index.jsp");
+                page = "Index.jsp";
+            } else if (action.equals("echannel")) {
+                request.setAttribute("doctors", "doctor");
+                page = "EChannel.jsp";
             }
+            System.out.println("dddiss");
+            request.getRequestDispatcher(page).forward(request, response);
         }
     }
 
@@ -51,50 +56,41 @@ public class Main extends HttpServlet {
         session = request.getSession();
         String action = request.getParameter("action");
         PrintWriter out = response.getWriter();
+        String page = "Index.jsp";
         User user = new User();
-        if (action != null) {
+        if (action == null || action.isEmpty()) {
+            request.getRequestDispatcher(page).forward(request, response);            
+        } else {
             if (action.equals("login")) {
                 System.out.println("login");
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
-                System.out.println(username+"  uname");
-                System.out.println(password+"  pass");
+                System.out.println(username + "  uname");
+                System.out.println(password + "  pass");
                 Users users = new Users();
                 user = users.checkLogin(username, password);
-                if (!"1".equals(user.getFound())) {
+                if (!"1".equals(user.getFound()) || !user.getTypeId().equals("4") && !user.getTypeId().equals("5")) {
                     System.out.println("Invalid username or password");
                     request.setAttribute("error", "Invalid username or password");
-                    request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    response.sendRedirect("Index.jsp");
-                    return;
-                }
-
-                session.setAttribute("user", user);
-                request.setAttribute("user", user);               
-                if (user.getTypeId().equals("4") || user.getTypeId().equals("5") ) {
-                    request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    response.sendRedirect("Index.jsp");
-                    return;
-                }else{
-                    user.setError("user type not found");
-                    System.out.println("user type not found");
+                    page = "Index.jsp";
+                } else {
+                    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                    page = "Index.jsp";
+                    session.setAttribute("user", user);
                     request.setAttribute("user", user);
-                    request.getRequestDispatcher("Index.jsp").forward(request, response);
-                    response.sendRedirect("Index.jsp");
-                    return;
-                }               
-            }else if(action.equals("checkusername")){
+                }
+            } else if (action.equals("checkusername")) {
                 Users users = new Users();
                 String username = request.getParameter("username");
                 int available = users.checkUsername(username);
-                String y="";
-                if (available == 1){
+                String y = "";
+                if (available == 1) {
                     y = "<font style='font-size:80%;' color = '#008080'>Available</font>";
-                }else{
+                } else {
                     y = "<font style='font-size:80%;' color = '#FF2F00'>Already Exist</font>";
                 }
                 response.getWriter().write(y);
-            }else if(action.equals("signup")){
+            } else if (action.equals("signup")) {
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
                 String email = request.getParameter("email");
@@ -108,9 +104,19 @@ public class Main extends HttpServlet {
                 user1.setEmail(email);
                 user1 = users.signup(user1);
                 response.getWriter().write(user1.getSuccess());
-            }
-        }else{
-            request.getRequestDispatcher("Index.jsp").forward(request, response);
+            } else if (action.equals("searchdoctors")) {
+                page = "EChannel.jsp";
+                String doctorName = request.getParameter("doctor");
+                String spacialty = request.getParameter("specialty");
+                String dayDate = request.getParameter("daydate");
+                String time = request.getParameter("time");
+                User user1 = new User();
+                user1 = 
+                
+                System.out.println(spacialty);
+            }          
+            
+            request.getRequestDispatcher(page).forward(request, response);
         }
     }
 

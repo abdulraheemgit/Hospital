@@ -74,15 +74,25 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
     border-radius: 3px;
 }
 
+::-webkit-input-placeholder {
+   color: #F7F7F7;
+}
 
+:-moz-placeholder { /* Firefox 18- */
+   color: #F7F7F7;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #F7F7F7;  
+}
+
+:-ms-input-placeholder {  
+   color: #F7F7F7;  
+}
 
 .contentbody{
     background-color: #F7F7F7;
 }
-
-
-
-
 /*Media Queries*/
 
 @media screen and (max-width: 768px) {

@@ -35,7 +35,7 @@
         <script src="JS/semantic.min.js" type="text/javascript"></script>
         <script src="JS/toastr.js"></script>
 
-        <script type="text/javascript">	
+        <script>	
             $(document).ready(function(){
                 _error = '${error}';
                if(_error != '') {

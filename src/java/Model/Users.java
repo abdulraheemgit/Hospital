@@ -69,17 +69,17 @@ public class Users {
             if (rs.next()) {
                 user1.setUserID(user.getUserID());
                 user1.setUsername(rs.getString(2));
-                user1.setEmail(rs.getString(2));
-                user1.setSignUpDate(rs.getString(2));
-                user1.setfName(rs.getString(2));
-                user1.setlName(rs.getString(2));
-                user1.setGender(rs.getString(2));
-                user1.setAddress1(rs.getString(2));
-                user1.setAddress2(rs.getString(2));
-                user1.setAddress3(rs.getString(2));
-                user1.setTypeId(rs.getString(2));
-                user1.setPatientId(rs.getString(2));
-                user1.setDoctorId(rs.getString(2));
+                user1.setEmail(rs.getString(4));
+                user1.setSignUpDate(rs.getDate(5).toString());
+                user1.setfName(rs.getString(6));
+                user1.setlName(rs.getString(7));
+                user1.setGender(rs.getString(8));
+                user1.setAddress1(rs.getString(9));
+                user1.setAddress2(rs.getString(10));
+                user1.setAddress3(rs.getString(11));
+                user1.setTypeId(rs.getString(12));
+                user1.setPatientId(rs.getString(14));
+                user1.setDoctorId(rs.getString(15));
                 user1.setFound("1");                
                 Contact contact = new Contact();                
                 user1.setContacts(contact.GetContacts(user));
