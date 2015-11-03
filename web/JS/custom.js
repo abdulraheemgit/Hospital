@@ -8,7 +8,7 @@ $("#username").blur(function() {
         $("#userdiv").html("<font color='#FF2F00' style='font-size:80%;'>username cannot be empty</font>");
         error = 1;
     } else {
-        $.post("MainFrontEnd", {action: "checkusername", username: username}, function(z) {
+        $.post("Main", {action: "checkusername", username: username}, function(z) {
             $("#userdiv").html(z);
         });
         error = 0;
@@ -72,14 +72,14 @@ $("#btnsignup").click(function() {
         if (username == "" || username == null || password == "" || password == null || repassword == "" || repassword == null || email == "" || email == null) {
             toastr.error('Incomplete Form');
         } else {
-            $.post("MainFrontEnd", {action: "signup", username: username, password: password, email: email}, function(z) {
+            $.post("Main", {action: "signup", username: username, password: password, email: email}, function(z) {
                 alert(z);
 //            $("#userdiv").html(z);
                 if (z == null) {
                     toastr.error('Error')
                 } else if (z == 1) {
                     toastr.success('Thank You!')
-                    $.post("MainFrontEnd", {action: "login", username: username, password: password}, function(z) {
+                    $.post("Main", {action: "login", username: username, password: password}, function(z) {
                         
                     });
                 } else {

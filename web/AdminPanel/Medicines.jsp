@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="AdinPanel/Header.jsp"></jsp:include>
     <div class="contentbody" style="background-color: #F7F7F7">
     <jsp:include page="UserOption.jsp"></jsp:include>
         <div class="pusher">

@@ -8,48 +8,7 @@
         <link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/semantic.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/toastr.css" rel="stylesheet" type="text/css"/>
-        <style>
-            .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-                color: white;  /*Sets the text hover color on navbar*/
-            }
-            .navbar-default .navbar-right > li > a:hover, .navbar-default .navbar-right > li > a:focus {
-                color: white;  /*Sets the text hover color on navbar*/
-            }            
-            .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
-            a:hover, .navbar-default .navbar-nav > .active > a:focus {
-                color: white; /*BACKGROUND color for active*/
-                background-color: #0CC7BF;
-            }
-
-            .navbar-default {
-                background-color: #00b5ad;
-                border-color: #00b5ad;
-            }
-
-            .dropdown-menu > li > a:hover,
-            .dropdown-menu > li > a:focus {
-                color: #262626;
-                text-decoration: none;
-                background-color: #66CCFF;  /*change color of links in drop down here*/
-            }
-
-            .nav > li > a:hover,
-            .nav > li > a:focus {
-                text-decoration: none;
-                background-color: #00b5ad; /*Change rollover cell color here*/
-            }
-
-
-            .navbar-default .navbar-nav > li > a {
-                color: #DCFCFB; /*Change active text color here*/
-            }
-            .navbar-default .navbar-right > li > a {
-                color: #DCFCFB; /*Change active text color here*/
-            }
-            .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
-            .navbar-right > li > a {padding-top:5px !important; padding-bottom:5px !important;}
-            .navbar {min-height:32px !important}
-        </style>
+        <link href="CSS/custom.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="ui modal small thanku">
@@ -170,7 +129,14 @@
                                 <li class="active"><a href="#"><i class="dashboard icon"></i> Home</a></li>
                                 <li><a href="#"><i class="user icon"></i> About Us</a></li>
                                 <li><a href="#"><i class="treatment icon"></i> Services</a></li>
-                                <li><a href="#"><i class="openid icon"></i> Facilities</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="openid icon"></i>Facilities</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Hospital/Main?action=echannel">e-channel</a></li>
+                                        <li><a href="#">Laboratory</a></li>
+                                        <li><a href="/Hospital/Main">Test Reports</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#"><i class="help icon"></i> Help</a></li>
                             </ul>          
                             <c:choose>
