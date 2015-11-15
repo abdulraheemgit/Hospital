@@ -41,7 +41,34 @@ public class User {
     //for additional requirement
     private List<UserType> usertype = new ArrayList();
     private List<Contact> contacts = new ArrayList();
+    private String doctorNote = "";
+    private String specialization = "";
+    private String specialDesc = "";
 
+    public String getDoctorNote() {
+        return doctorNote;
+    }
+
+    public void setDoctorNote(String doctorNote) {
+        this.doctorNote = doctorNote;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public String getSpecialDesc() {
+        return specialDesc;
+    }
+
+    public void setSpecialDesc(String specialDesc) {
+        this.specialDesc = specialDesc;
+    }
+    
     public String getSuccess() {
         return success;
     }
@@ -49,8 +76,6 @@ public class User {
     public void setSuccess(String success) {
         this.success = success;
     }
-
-   
 
     public String getFound() {
         return found;

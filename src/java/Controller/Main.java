@@ -5,10 +5,15 @@
  */
 package Controller;
 
+import Beans.Specialization;
+import Beans.Time;
 import Beans.User;
+import Model.EChannelings;
 import Model.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +47,13 @@ public class Main extends HttpServlet {
                 session.invalidate();
                 page = "Index.jsp";
             } else if (action.equals("echannel")) {
-                request.setAttribute("doctors", "doctor");
+                EChannelings ec = new EChannelings();
+                List<Specialization> s = new ArrayList();
+                List<Time> t = new ArrayList();
+                s = ec.getSpecialization();
+                t = ec.getTimes();
+                request.setAttribute("specializations", s);
+                request.setAttribute("times", t);
                 page = "EChannel.jsp";
             }
             System.out.println("dddiss");
@@ -106,14 +117,40 @@ public class Main extends HttpServlet {
                 response.getWriter().write(user1.getSuccess());
             } else if (action.equals("searchdoctors")) {
                 page = "EChannel.jsp";
-                String doctorName = request.getParameter("doctor");
-                String spacialty = request.getParameter("specialty");
-                String dayDate = request.getParameter("daydate");
-                String time = request.getParameter("time");
-                User user1 = new User();
-                user1 = 
+                EChannelings ec = new EChannelings();
+                List<Specialization> s = new ArrayList();
+                List<Time> t = new ArrayList();
+                s = ec.getSpecialization();
+                t = ec.getTimes();
+                request.setAttribute("specializations", s);
+                request.setAttribute("times", t);
                 
-                System.out.println(spacialty);
+                String [] searchInputs = new String[4];
+                searchInputs[0] = request.getParameter("doctor");
+                searchInputs[1] = request.getParameter("specialty");
+                searchInputs[2] = request.getParameter("daydate");
+                searchInputs[3] = request.getParameter("time");
+                if(searchInputs[3].isEmpty()){
+                    searchInputs[3] = null;
+                }
+                System.out.println(searchInputs[0]);
+                System.out.println(searchInputs[1]);
+                System.out.println(searchInputs[2]);
+                System.out.println(searchInputs[3]);
+                
+                List<User> doctors = new ArrayList();
+                doctors = ec.searchDoctor(searchInputs);
+                if(doctors.isEmpty()){
+                    request.setAttribute("norecords", "No Records Found");
+                }
+                request.setAttribute("results", "Search Results");
+                request.setAttribute("doctors", doctors);
+                request.setAttribute("doctor", searchInputs[0]);
+                request.setAttribute("specialty", searchInputs[1]);
+                request.setAttribute("daydate", searchInputs[2]);
+                request.setAttribute("time", searchInputs[3]);
+                
+                System.out.println("echannel");
             }          
             
             request.getRequestDispatcher(page).forward(request, response);

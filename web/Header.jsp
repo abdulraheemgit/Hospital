@@ -9,6 +9,7 @@
         <link href="CSS/semantic.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/toastr.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/datepicker.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="ui modal small thanku">
@@ -126,7 +127,7 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-collapse-01">
                             <ul class="nav navbar-nav">           
-                                <li class="active"><a href="#"><i class="dashboard icon"></i> Home</a></li>
+                                <li class="active"><a href="#"><i class="home icon"></i> Home</a></li>
                                 <li><a href="#"><i class="user icon"></i> About Us</a></li>
                                 <li><a href="#"><i class="treatment icon"></i> Services</a></li>
                                 <li class="dropdown">
