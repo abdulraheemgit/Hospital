@@ -126,10 +126,11 @@
                                                 <p>${doctor.specialDesc}</p>
                                             </div>
                                             <div class="extra">
-                                                <div class="ui right floated basic button">
+                                                <a href="/Hospital/Main?action=viewdoctor?doctorid=${doctor.doctorId}"><div class="ui right floated basic button">
                                                     View More
                                                     <i class="right chevron icon"></i>
                                                 </div>
+                                                </a>
                                                 <div style="padding-top: 10px;"><i class="h icon"></i>HolyCross Hospital</div>
                                             </div>
                                         </div>

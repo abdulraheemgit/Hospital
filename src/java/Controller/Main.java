@@ -54,7 +54,14 @@ public class Main extends HttpServlet {
                 t = ec.getTimes();
                 request.setAttribute("specializations", s);
                 request.setAttribute("times", t);
-                page = "EChannel.jsp";
+                page = "SearchDoctor.jsp";
+            }else if (action.equals("viewdoctor")) {
+                EChannelings ec = new EChannelings();
+                List<Specialization> s = new ArrayList();
+                List<Time> t = new ArrayList();
+                request.setAttribute("specializations", s);
+                request.setAttribute("times", t);
+                page = "Doctor.jsp";
             }
             System.out.println("dddiss");
             request.getRequestDispatcher(page).forward(request, response);
@@ -116,7 +123,7 @@ public class Main extends HttpServlet {
                 user1 = users.signup(user1);
                 response.getWriter().write(user1.getSuccess());
             } else if (action.equals("searchdoctors")) {
-                page = "EChannel.jsp";
+                page = "SearchDoctor.jsp";
                 EChannelings ec = new EChannelings();
                 List<Specialization> s = new ArrayList();
                 List<Time> t = new ArrayList();
