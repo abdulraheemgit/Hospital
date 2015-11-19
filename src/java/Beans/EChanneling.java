@@ -8,12 +8,39 @@ public class EChanneling {
     private String status ="";
     private String appliedOn ="";
     private String contactNo ="";
+    private String nic = "";
+    private String notes = "";
     
     private String doctorId ="";
-    private String patientId ="";
-    private String timeId ="";
-    private String dayId ="";
+    private String patientId =null;
+    private String time ="";
+    private String dayId =null;
     private String date ="";
+    private String success = "";
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
+
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
     public String getEchannelId() {
         return echannelId;
@@ -79,12 +106,12 @@ public class EChanneling {
         this.patientId = patientId;
     }
 
-    public String getTimeId() {
-        return timeId;
+    public String getTime() {
+        return time;
     }
 
-    public void setTimeId(String timeId) {
-        this.timeId = timeId;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getDayId() {

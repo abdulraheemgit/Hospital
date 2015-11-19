@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Beans;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- *
- * @author Toshiba
- */
+ 
 public class User {
-
     private String userID = "";
     private String username = "";
     private String password = "";
@@ -28,6 +18,7 @@ public class User {
     private String typeId = "";
     private String patientId = "";
     private String doctorId = "";
+    private String nic = "";
     
     private String success = "";
     private String error = "";
@@ -44,6 +35,14 @@ public class User {
     private String doctorNote = "";
     private String specialization = "";
     private String specialDesc = "";
+
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
 
     public String getDoctorNote() {
         return doctorNote;

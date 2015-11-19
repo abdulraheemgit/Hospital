@@ -96,6 +96,7 @@
                                 <div class="field" style="margin-top: 30px;">
                                     <input type="hidden" name="action" value="login" /> 
                                     <input id="search" class="form-control btn btn-info" type="submit" name="btnsubmit" value="Search" />
+                                    <p style="font-size: 75%;">No idea about search inputs!!   just click the above 'Search' button</p>
                                 </div>
                             </div>
                         </form>
@@ -126,10 +127,11 @@
                                                 <p>${doctor.specialDesc}</p>
                                             </div>
                                             <div class="extra">
-                                                <a href="/Hospital/Main?action=viewdoctor?doctorid=${doctor.doctorId}"><div class="ui right floated basic button">
-                                                    View More
-                                                    <i class="right chevron icon"></i>
-                                                </div>
+                                                <a href="/Hospital/Main?action=viewdoctor&doctorid=${doctor.doctorId}">
+                                                    <div class="ui right floated basic button">
+                                                        View More
+                                                        <i class="right chevron icon"></i>
+                                                    </div>
                                                 </a>
                                                 <div style="padding-top: 10px;"><i class="h icon"></i>HolyCross Hospital</div>
                                             </div>
@@ -144,40 +146,45 @@
                     </div>
                 </div>
                 <div class="two wide column">  
-                    <div class="ui togglebar button black right floated">
-                        <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                        <i class="tasks icon"></i>
-                    </div>
+                    <c:choose>
+                        <c:when test="${empty user.username}"></c:when>
+                        <c:otherwise>
+                            <div class="ui togglebar button black right floated">
+                                <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                                <i class="tasks icon"></i>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
     </div>
     <jsp:include page="Footer.jsp"></jsp:include>
-        <script>
-            count = 0;
-            $('.ui.dropdown').dropdown();
-            $('.ui.accordion').accordion();
-            $("#search").click(function() {
-                doctor = $("doctor").val();
-                special = $("input.search").val();
-                ddate = $("input.search").val();
-                time = $("input.search").val();
+    <script>
+        count = 0;
+        $('.ui.dropdown').dropdown();
+        $('.ui.accordion').accordion();
+        $("#search").click(function() {
+            doctor = $("doctor").val();
+            special = $("input.search").val();
+            ddate = $("input.search").val();
+            time = $("input.search").val();
 
-                if (special !== "" && special !== null) {
-                    $("input#specialty").val(special);
-                }
-                $("#searchresults").css("display", "block");
-                count++;
-                console.log($("input#specialty").val());
-            });
-            $("#btnday").click(function() {
-                $("#date").css("display", "none");
-                $(".day").css("display", "block");
-            });
-            $("#btndate").click(function() {
-                $("#date").css("display", "block");
-                $(".day").css("display", "none");
-            });
+            if (special !== "" && special !== null) {
+                $("input#specialty").val(special);
+            }
+            $("#searchresults").css("display", "block");
+            count++;
+            console.log($("input#specialty").val());
+        });
+        $("#btnday").click(function() {
+            $("#date").css("display", "none");
+            $(".day").css("display", "block");
+        });
+        $("#btndate").click(function() {
+            $("#date").css("display", "block");
+            $(".day").css("display", "none");
+        });
     </script>
     <script>
         // When the document is ready

@@ -30,11 +30,12 @@ public class Users {
         User user = new User();
         conn = new DbConn();
         conn.connectDB();
-        String sql = "Select userid From tblusers where username = ? AND password = ?";
+        String sql = "Select userid From tblusers where username = ? AND password = MD5(?)";
         try {
             pstmt = conn.conn.prepareStatement(sql);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
+            System.out.println(pstmt);
             rs = pstmt.executeQuery();
             
             if (rs.next()) {
@@ -68,18 +69,19 @@ public class Users {
             
             if (rs.next()) {
                 user1.setUserID(user.getUserID());
-                user1.setUsername(rs.getString(2));
-                user1.setEmail(rs.getString(4));
-                user1.setSignUpDate(rs.getDate(5).toString());
-                user1.setfName(rs.getString(6));
-                user1.setlName(rs.getString(7));
-                user1.setGender(rs.getString(8));
-                user1.setAddress1(rs.getString(9));
-                user1.setAddress2(rs.getString(10));
-                user1.setAddress3(rs.getString(11));
-                user1.setTypeId(rs.getString(12));
-                user1.setPatientId(rs.getString(14));
-                user1.setDoctorId(rs.getString(15));
+                user1.setUsername(rs.getString("username"));
+                user1.setEmail(rs.getString("email"));
+                user1.setSignUpDate("signupdate".toString());
+                user1.setfName(rs.getString("fname"));
+                user1.setlName(rs.getString("lname"));
+                user1.setNic(rs.getString("nic"));
+                user1.setGender(rs.getString("gender"));
+                user1.setAddress1(rs.getString("address1"));
+                user1.setAddress2(rs.getString("address2"));
+                user1.setAddress3(rs.getString("address3"));
+                user1.setTypeId(rs.getString("type_fk"));
+                user1.setPatientId(rs.getString("patientid_fk"));
+                user1.setDoctorId(rs.getString("doctorid_fk"));
                 user1.setFound("1");                
                 Contact contact = new Contact();                
                 user1.setContacts(contact.GetContacts(user));
@@ -142,22 +144,23 @@ public class Users {
         User user = new User();
         String success = "";
         String sql = "INSERT INTO tblusers (username, password, email, signupdate, fname, lname, gender, address1, "
-                   + "address2, address3, type_fk)VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        System.out.println(sql);
+                   + "address2, address3, type_fk)VALUES (?, MD5(?), ?, NOW(), ?, ?, ?, ?, ?, ?,?)";
+        
         try {
             pstmt = conn.conn.prepareStatement(sql);
             pstmt.setString(1, u.getUsername());
             pstmt.setString(2, u.getPassword());
             pstmt.setString(3, u.getEmail());
-            pstmt.setString(4, "now()");
-            pstmt.setString(5, u.getfName());
-            pstmt.setString(6, u.getlName());
-            pstmt.setString(7, u.getGender());
-            pstmt.setString(8, u.getAddress1());
-            pstmt.setString(9, u.getAddress2());
-            pstmt.setString(10, u.getAddress3());
-            pstmt.setString(11, u.getTypeId());
-            success = String.valueOf(pstmt.executeUpdate());
+            pstmt.setString(4, u.getfName());
+            pstmt.setString(5, u.getlName());
+            pstmt.setString(6, u.getGender());
+            pstmt.setString(7, u.getAddress1());
+            pstmt.setString(8, u.getAddress2());
+            pstmt.setString(9, u.getAddress3());
+            pstmt.setString(10, u.getTypeId());
+            System.out.println(pstmt);
+            int i = pstmt.executeUpdate();
+            success = String.valueOf(i);
             user.setSuccess(success);
             conn.closeDB();
             return user;
