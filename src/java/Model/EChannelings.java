@@ -82,12 +82,12 @@ public class EChannelings {
             String time,min,min1,min2,nextSession;
             while (rs.next()) {
                 DoctorTime dt = new DoctorTime();
-                dt.setDoctorId(rs.getString(1));
-                dt.setDate(rs.getString(2));
-                dt.setDayId(rs.getString(3));
-                dt.setDay(rs.getString(4));
-                a = rs.getInt(5);
-                b = rs.getInt(6);
+                dt.setDoctorId(rs.getString("doctorid"));
+                dt.setDate(rs.getString("date"));
+                dt.setDayId(rs.getString("day_fk"));
+                dt.setDay(rs.getString("day"));
+                a = rs.getInt("sessions");
+                b = rs.getInt("apointments");
                 dt.setAppointments(String.valueOf(b));
                 if (a <= b) {
                     dt.setStatus("Full");
@@ -95,10 +95,10 @@ public class EChannelings {
                 if (a > b) {
                     dt.setStatus("Available");
                 }
-                dt.setTimeFrom(rs.getString(7));
-                dt.setTimeTo(rs.getString(8));
-                min = rs.getString(9);
-                time = rs.getString(10);
+                dt.setTimeFrom(rs.getString("timefrom"));
+                dt.setTimeTo(rs.getString("timeto"));
+                min = rs.getString("mins");
+                time = rs.getString("sessiontime");
                 min1 = time.substring(time.length()-2,time.length());
                 if(min.equals("0")){
                     min2 = time;

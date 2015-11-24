@@ -91,6 +91,7 @@ $("#btnsignup").click(function() {
                             + "<span class='glyphicon glyphicon-triangle-left' aria-hidden='true'></span>"
                             + "<i class='tasks icon'></i></div>");
                     toastr.success('Thank you for signin up');
+                    location.reload();
 //                    $.post("Main", {action: "login", username: username, password: password}, function(z) {
 //                        
 //                    });
