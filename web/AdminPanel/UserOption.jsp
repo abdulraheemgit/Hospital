@@ -1,9 +1,11 @@
         
 <div class="ui  labeled icon right inline vertical sidebar menu">
+    <a class="item" href="/Hospital/MainBackEnd?action=adminprofile">
     <a class="item">
         <i class="user icon"></i>
         My Profile 
     </a>
+    <a class="item" href="/Hospital/MainBackEnd?action=adminsettings">
     <a class="item">
         <i class="settings icon"></i>
         Settings

@@ -19,15 +19,20 @@ public class User {
     private String password = "";
     private String email = "";
     private String signUpDate = "";
+    private String bday = "";
+    private String validId = "";
     private String fName = "";
     private String lName = "";
     private String gender = "";
     private String address1 = "";
     private String address2 = "";
     private String address3 = "";
+    private String contactNo = "";
     private String typeId = "";
     private String patientId = "";
     private String doctorId = "";
+    private String nic = "";
+    
     
     private String success = "";
     private String error = "";
@@ -41,6 +46,9 @@ public class User {
     //for additional requirement
     private List<UserType> usertype = new ArrayList();
     private List<Contact> contacts = new ArrayList();
+    private String doctorNote = "";
+    private String specialization = "";
+    private String specialDesc = "";
 
     public String getSuccess() {
         return success;
@@ -49,9 +57,7 @@ public class User {
     public void setSuccess(String success) {
         this.success = success;
     }
-
    
-
     public String getFound() {
         return found;
     }
@@ -164,6 +170,14 @@ public class User {
         this.address3 = address3;
     }
 
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
     public String getTypeId() {
         return typeId;
     }
@@ -220,6 +234,52 @@ public class User {
         this.doctorId = doctorId;
     }
 
-    
+    public String getValidId() {
+        return validId;
+    }
+
+    public void setValidId(String validId) {
+        this.validId = validId;
+    }
+
+    public String getBday() {
+        return bday;
+    }
+
+    public void setBday(String bday) {
+        this.bday = bday;
+    }
+
+    public String getNic() {
+        return nic;
+    }
+
+    public String getDoctorNote() {
+        return doctorNote;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
+
+    public void setDoctorNote(String doctorNote) {
+        this.doctorNote = doctorNote;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public void setSpecialDesc(String specialDesc) {
+        this.specialDesc = specialDesc;
+    }
+
+    public String getSpecialDesc() {
+        return specialDesc;
+    }
     
 }

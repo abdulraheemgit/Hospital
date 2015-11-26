@@ -6,6 +6,7 @@
 
 package Beans;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +16,12 @@ import java.util.List;
  */
 public class TakeTest {
     private String takeTestId = "";
-    private String dateGiven = "";
+    private Timestamp dateGiven;
     private String status = "";
     private String testId = "";
     private String patientId = "";
     private String doctorId = "";
+    private String message = "";
     
     private Test test;
     private Patient patient;
@@ -33,11 +35,11 @@ public class TakeTest {
         this.takeTestId = takeTestId;
     }
 
-    public String getDateGiven() {
+    public Timestamp getDateGiven() {
         return dateGiven;
     }
 
-    public void setDateGiven(String dateGiven) {
+    public void setDateGiven(Timestamp dateGiven) {
         this.dateGiven = dateGiven;
     }
 
@@ -96,7 +98,12 @@ public class TakeTest {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
-    
-    
-    
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }   
 }

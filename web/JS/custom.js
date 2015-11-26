@@ -53,6 +53,13 @@ function isEmail(email) {
     return regex.test(email);
 }
 
+function isnumber(str) {
+    var n = ~~Number(str);
+    return String(n) === str && n > 0;
+}
+
+
+
 $("#btnsignup").click(function() {
 
     if (!$('#agreements').prop('checked')) {
@@ -73,17 +80,20 @@ $("#btnsignup").click(function() {
             toastr.error('Incomplete Form');
         } else {
             $.post("Main", {action: "signup", username: username, password: password, email: email}, function(z) {
-                alert(z);
+//                alert(z);
 //            $("#userdiv").html(z);
-                if (z == null) {
+                if (z == null || z == "") {
                     toastr.error('Error')
-                } else if (z == 1) {
-                    toastr.success('Thank You!')
-                    $.post("Main", {action: "login", username: username, password: password}, function(z) {
-                        
-                    });
-                } else {
-                    toastr.error('Error')
+                } else if (true) {
+                    $(".navbar-right > li.btnsignup > a").html("Welcome " + z[2]);
+                    $(".navbar-right > li.btnlogin > a").html("");
+                    $(".rightdiv").html("<div class='ui togglebar button black right floated'>"
+                            + "<span class='glyphicon glyphicon-triangle-left' aria-hidden='true'></span>"
+                            + "<i class='tasks icon'></i></div>");
+                    toastr.success('Thank you for signin up');
+//                    $.post("Main", {action: "login", username: username, password: password}, function(z) {
+//                        
+//                    });
                 }
             });
         }

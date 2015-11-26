@@ -14,6 +14,7 @@
                         <form method="post" action="/Hospital/MainBackEnd?action=login" class="ui form">
                             <div class="ui header center aligned">Login Credentials</div>
                             <div class="ui divider"></div>
+                            <div style="color: #FF0000;">${error}</div>
                             <div class="field">
                                 <label>Username</label> <input type="text" name="username" placeholder="Username here..." />
                             </div>
@@ -26,6 +27,10 @@
                                 <input class="fluid ui green button" type="submit" name="btnsubmit" value="Sign In" />
                             </div>
                         </form>
+                        <div class="ui divider"></div>
+                        <div class="field">
+                            <a href="/Hospital/MainBackEnd?action=fpassword"><p>Forgot password?</p></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,13 +40,13 @@
         <script src="JS/semantic.min.js" type="text/javascript"></script>
         <script src="JS/toastr.js"></script>
 
-        <script>	
+        <!--<script>	
             $(document).ready(function(){
                 _error = '${error}';
                if(_error != '') {
                        toastr.error(_error);
                }			
             });
-	</script>
+	</script>-->
     </body>
 </html>

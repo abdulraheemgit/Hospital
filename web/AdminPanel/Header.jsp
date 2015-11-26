@@ -48,14 +48,14 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-collapse-01">
                             <ul class="nav navbar-nav">           
-                                <li class="active"><a href="#"><i class="dashboard icon"></i> Dashboard</a></li>
+                                <li class="active"><a href="/Hospital/MainBackEnd?action=admindash"><i class="dashboard icon"></i> Dashboard</a></li>
                                 <li><a href="/Hospital/MainBackEnd?action=users"><i class="user icon"></i> Users</a></li>
-                                <li><a href="#"><i class="mail icon"></i> Messages</a></li>
+                                <!--<li><a href="#"><i class="mail icon"></i> Messages</a></li>-->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fork icon"></i>Functions</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/Hospital/MainBackEnd?action=medicine">Medicine</a></li>
-                                        <li><a href="#">Laboratory</a></li>
+                                        <li><a href="/Hospital/MainBackEnd?action=test">Tests</a></li>
                                         <li><a href="/Hospital/MainBackEnd?action=addreport">Test Reports</a></li>
                                     </ul>
                                 </li>

@@ -2,6 +2,8 @@ package Beans;
 
 public class Patient {
     private String patientId = "";
+    private String fname = "";
+    private String lname = "";
     private String inPatientId = "";
     private String outPatientId = "";
     private String proId = "";
@@ -15,6 +17,22 @@ public class Patient {
 
     public void setPatientId(String patientId) {
         this.patientId = patientId;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public String getInPatientId() {

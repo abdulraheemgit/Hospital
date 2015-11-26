@@ -27,7 +27,7 @@
                             </div>
                             <div class="ui items">
                                 <div class="item">
-                                    <div class="content">
+                                    <!--<div class="content">
                                         <a class="header">Anobia Alstan [10515000]</a>
                                         <div class="meta">
                                             <span>anobiaalstan@gmail.com</span>
@@ -35,37 +35,29 @@
                                         <div class="extra">
                                             0771234567
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <div class="ui styled fluid accordion">
                                 <div class="active title">
                                     <i class="dropdown icon"></i>
-                                    Test 01
-                                </div>
-                                <div class="active content">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            Date Given: 12-sep-2015
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>
-                                                <button type="button" class="btn btn-info pull-right">Upload Report <span><i class="icon upload "></i></span></button>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="title">
-                                    <i class="dropdown icon"></i>
-                                    Test 02
+                                    Full Blood Count
                                 </div>
                                 <div class="content">
                                     <p>
-                                        <button type="button" class="btn btn-info pull-right">Upload Report <span><i class="icon upload "></i></span></button>
+                                        <a href="/Hospital/MainBackEnd?action=addreportdata"><button type="button" class="btn btn-info pull-right">Add Report<span><i class="icon upload "></i></span></button></a>
                                     </p>
                                 </div>
                                 <div class="title">
+                                    <i class="dropdown icon"></i>
+                                    Chemical Pathology Test
+                                </div>
+                                <div class="content">
+                                    <p>
+                                        <a href="/Hospital/MainBackEnd?action=addreportdataa"><button type="button" class="btn btn-info pull-right">Add Report<span><i class="icon upload "></i></span></button></a>
+                                    </p>
+                                </div>
+                                <!--<div class="title">
                                     <i class="dropdown icon"></i>
                                     Test 03
                                 </div>
@@ -73,7 +65,7 @@
 
                                     <button type="button" class="btn btn-info pull-right">Upload Report <span><i class="icon upload "></i></span></button>
                                     <p></p>
-                                </div>
+                                </div>-->
                             </div>
 
                         </div>

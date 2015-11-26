@@ -6,7 +6,12 @@ public class DoctorTime {
     private String timeFrom;
     private String timeTo;
     private String day;
+    private String dayId;
+    private String date;
+    private String status;
+    private String appointments;
     private User doctor;
+    private String nextSession;
 
     public String getDoctorId() {
         return doctorId;
@@ -46,6 +51,46 @@ public class DoctorTime {
 
     public void setDoctor(User doctor) {
         this.doctor = doctor;
+    }
+
+    public String getDayId() {
+        return dayId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getAppointments() {
+        return appointments;
+    }
+
+    public void setDayId(String dayId) {
+        this.dayId = dayId;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setAppointments(String appointments) {
+        this.appointments = appointments;
+    }
+
+    public String getNextSession() {
+        return nextSession;
+    }
+
+    public void setNextSession(String nextSession) {
+        this.nextSession = nextSession;
     }
     
     

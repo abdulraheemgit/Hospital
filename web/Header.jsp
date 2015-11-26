@@ -9,6 +9,7 @@
         <link href="CSS/semantic.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/toastr.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/datepicker.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="ui modal small thanku">
@@ -32,7 +33,7 @@
             <div class="header">
                 <p style="text-align: center;">Login Credentials</p>
             </div>
-            <form method="post" action="/Hospital/Main?action=login" class="ui form">
+            <form id="signinmodal" method="post" action="/Hospital/Main?action=login" class="ui form">
                 <div class="content" style="margin: 25px;">
                     <div class="ui form">
                         <div class="field">
@@ -40,6 +41,9 @@
                         </div>
                         <div class="field">
                             <input type="password" placeholder="password... " name="password">
+                            <input id="edoctorid" type="hidden"  name="doctorid">
+                            <input id="edate" type="hidden"  name="date">
+                            
                         </div>
                     </div>
                 </div>
@@ -57,7 +61,7 @@
             <div class="header">
                 <p style="text-align: center;">Enter Credentials</p>
             </div>
-            <form method="post" action="/Hospital/Main?action=signup" class="ui form">
+            <form id="signupmodal" method="post" action="/Hospital/Main?action=signup" class="ui form">
                 <div class="content" style="margin: 25px;">
                     <div class="ui form">
                         <div class="field">
@@ -126,8 +130,8 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-collapse-01">
                             <ul class="nav navbar-nav">           
-                                <li class="active"><a href="#"><i class="dashboard icon"></i> Home</a></li>
-                                <li><a href="#"><i class="user icon"></i> About Us</a></li>
+                                <li class="active"><a href="/Hospital/Main"><i class="home icon"></i> Home</a></li>
+                                <li><a href="aboutus.jsp"><i class="user icon"></i> About Us</a></li>
                                 <li><a href="#"><i class="treatment icon"></i> Services</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="openid icon"></i>Facilities</a>
@@ -135,6 +139,14 @@
                                         <li><a href="/Hospital/Main?action=echannel">e-channel</a></li>
                                         <li><a href="#">Laboratory</a></li>
                                         <li><a href="/Hospital/Main">Test Reports</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="openid icon"></i>Patient</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="Main?action=patientsprofile">Profile</a></li>
+                                        <li><a href="Medication.jsp">Medication</a></li>
+                                        <li><a href="Tests.jsp">Tests</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#"><i class="help icon"></i> Help</a></li>

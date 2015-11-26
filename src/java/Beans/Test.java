@@ -13,7 +13,9 @@ package Beans;
 public class Test {
     private String testId = "";
     private String testName = "";
-
+    private String success = "";
+    private String error = "";
+    
     public String getTestId() {
         return testId;
     }
@@ -28,6 +30,22 @@ public class Test {
 
     public void setTestName(String testName) {
         this.testName = testName;
+    }
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
     
 }

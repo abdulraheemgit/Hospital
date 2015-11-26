@@ -1,10 +1,10 @@
         
 <div class="ui  labeled icon right inline vertical sidebar menu">
-    <a class="item">
+    <a class="item" href="Main?action=patientsprofile">
         <i class="user icon"></i>
         My Profile 
     </a>
-    <a class="item">
+    <a class="item" href="Main?action=patientsetting">
         <i class="settings icon"></i>
         Settings
     </a>
@@ -17,5 +17,3 @@
         Sign Out
     </a>
 </div>
-
-
