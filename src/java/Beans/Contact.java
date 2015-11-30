@@ -26,7 +26,7 @@ public class Contact {
         List<Contact> contacts = new ArrayList<>();
         conn = new DbConn();
         conn.connectDB();
-        String sql = "Select * From tblcontacts where userid_fk=?";
+        String sql = "Select * From tblcontacts where userid_fk = ?";
         try {
             pstmt = conn.conn.prepareStatement(sql);
             pstmt.setString(1, u.getUserID());

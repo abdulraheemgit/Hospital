@@ -93,6 +93,10 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 .contentbody{
     background-color: #F7F7F7;
 }
+
+.uimg{
+    width: 70%;
+}
 /*Media Queries*/
 
 @media screen and (max-width: 768px) {
@@ -100,7 +104,9 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
     body{
         background: white;
     }
-
+    .uimg{
+    width: 70%;
+}
 
 }
 

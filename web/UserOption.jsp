@@ -1,10 +1,10 @@
         
 <div class="ui  labeled icon right inline vertical sidebar menu">
-    <a class="item">
+    <a class="item" href="/Hospital/Main?action=profile">
         <i class="user icon"></i>
         My Profile 
     </a>
-    <a class="item">
+    <a class="item" href="/Hospital/Main?action=settings">
         <i class="settings icon"></i>
         Settings
     </a>

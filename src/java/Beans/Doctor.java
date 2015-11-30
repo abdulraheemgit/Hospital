@@ -5,9 +5,18 @@ public class Doctor {
     private String type = "";
     private String specializationId = "";
     private String createdById = "";
+    private String qualification[] = {""};
     
     private Specialization specialization;
     private User createdBy;
+
+    public String[] getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String[] qualification) {
+        this.qualification = qualification;
+    }
 
     public String getDoctorId() {
         return doctorId;

@@ -7,16 +7,21 @@
                 </div>
                 <div class="twelve wide column">
                     <div class="row"  style="margin-top: 15px; margin-bottom: 10px;"> 
-                    <!--Edit Here-->
+                        <!--Edit Here-->
                     </div>
                     <div>
                     </div>
                 </div>
                 <div class="two wide column">  
-                    <div class="ui togglebar button black right floated">
-                        <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                        <i class="tasks icon"></i>
-                    </div>
+                    <c:choose>
+                        <c:when test="${empty user.username}"></c:when>
+                        <c:otherwise>
+                            <div class="ui togglebar button black right floated">
+                                <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                                <i class="tasks icon"></i>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>

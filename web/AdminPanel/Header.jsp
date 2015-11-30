@@ -9,6 +9,7 @@
         <link href="CSS/semantic.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/toastr.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/datepicker.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- header-->

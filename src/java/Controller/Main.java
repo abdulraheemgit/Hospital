@@ -37,6 +37,7 @@ public class Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         session = request.getSession();
+        session.setMaxInactiveInterval(20*60);
         String action = request.getParameter("action");
         String page = null;
         User user = null;
@@ -100,9 +101,27 @@ public class Main extends HttpServlet {
                         request.setAttribute("doctor", u);
                     }
                 }
+            }else if (action.equals("aboutus")) {
+                page = "AboutUs.jsp";
+            }else if (action.equals("profile")) {
+                page = "Profile.jsp";
+                User u = new User();
+                u = (User)session.getAttribute("user");
+                
+//                System.out.println(u.getContacts());
+                request.setAttribute("user", u);
+            }else if (action.equals("settings")) {
+                page = "Settings.jsp";
+                User u = new User();
+                u = (User)session.getAttribute("user");
+                
+//                System.out.println(u.getContacts());
+                request.setAttribute("user", u);
             }
+            
 
             System.out.println("dddiss");
+            request.setAttribute("user", (User)session.getAttribute("user"));
             request.getRequestDispatcher(page).forward(request, response);
         }
     }
@@ -111,6 +130,7 @@ public class Main extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         session = request.getSession();
+        session.setMaxInactiveInterval(20*60);
         String action = request.getParameter("action");
         PrintWriter out = response.getWriter();
         String page = "Index.jsp";
@@ -282,7 +302,8 @@ public class Main extends HttpServlet {
                 return;
                 
             }
-
+            
+            request.setAttribute("user", (User)session.getAttribute("user"));
             request.getRequestDispatcher(page).forward(request, response);
         }
     }

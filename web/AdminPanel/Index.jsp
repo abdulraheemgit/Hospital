@@ -33,14 +33,13 @@
         
         <script src="JS/jquery-1.11.3.min.js" type="text/javascript"></script>
         <script src="JS/semantic.min.js" type="text/javascript"></script>
-        <script src="JS/toastr.js"></script>
+        <script src="JS/toastr.js" type="text/javascript"></script>
 
         <script>	
-            $(document).ready(function(){
-                _error = '${error}';
-               if(_error != '') {
-                       toastr.error(_error);
-               }			
+            $(document).ready(function() {
+                if ( ${!empty error}) {
+                    toastr.error("${error}");
+                }
             });
 	</script>
     </body>

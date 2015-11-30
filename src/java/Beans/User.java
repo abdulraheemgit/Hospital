@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
  
 public class User {
+    //AR
     private String userID = "";
     private String username = "";
     private String password = "";
@@ -19,6 +20,13 @@ public class User {
     private String patientId = "";
     private String doctorId = "";
     private String nic = "";
+    private String[] contact = {""}; 
+    private String createdBy = "";
+    //AR end
+    
+    private String contactNo = "";
+    private String bday = "";
+    private String validId = "";
     
     private String success = "";
     private String error = "";
@@ -28,6 +36,7 @@ public class User {
     private UserType uType = null;
     private User patient = null;
     private User doctor = null;
+    private Doctor doctor1 = null;
     
     //for additional requirement
     private List<UserType> usertype = new ArrayList();
@@ -244,6 +253,52 @@ public class User {
         this.doctorId = doctorId;
     }
 
-    
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
+    public String getBday() {
+        return bday;
+    }
+
+    public void setBday(String bday) {
+        this.bday = bday;
+    }
+
+    public String getValidId() {
+        return validId;
+    }
+
+    public void setValidId(String validId) {
+        this.validId = validId;
+    }
+
+    public String[] getContact() {
+        return contact;
+    }
+
+    public void setContact(String[] contact) {
+        this.contact = contact;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Doctor getDoctor1() {
+        return doctor1;
+    }
+
+    public void setDoctor1(Doctor doctor1) {
+        this.doctor1 = doctor1;
+    }
     
 }

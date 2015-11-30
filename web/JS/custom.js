@@ -55,9 +55,25 @@ function isEmail(email) {
 
 function isnumber(str) {
     var n = ~~Number(str);
-    return String(n) === str && n > 0;
+    if(str.charAt(0) === "0"){
+        return String("0"+n) === str && n>=0;
+    }else{
+        return String(n) === str && n>=0;
+    }
+    
 }
-
+function isNIC(nic){
+    if(nic.length != 10)
+        return false;
+    nicnum = nic.subStr(0, 9);
+    nicchar = nic.subStr(9);
+    if(isnumber(nicnum) && nicchar === "v" || nicchar === "x")
+        return true;
+    else
+        return false;
+    console.log(nicnum);
+    alert(nicnum)
+}
 
 
 $("#btnsignup").click(function() {

@@ -12,7 +12,7 @@ package Beans;
  */
 public class UserType {
     private String userTypeId = "";
-    private String UserType = "";
+    private String userType = "";
     private String count = "";
 
     public String getUserTypeId() {
@@ -24,11 +24,11 @@ public class UserType {
     }
 
     public String getUserType() {
-        return UserType;
+        return userType;
     }
 
     public void setUserType(String UserType) {
-        this.UserType = UserType;
+        this.userType = UserType;
     }
 
     public String getCount() {

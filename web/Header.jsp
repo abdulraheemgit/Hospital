@@ -131,7 +131,7 @@
                         <div class="collapse navbar-collapse" id="navbar-collapse-01">
                             <ul class="nav navbar-nav">           
                                 <li class="active"><a href="/Hospital/Main"><i class="home icon"></i> Home</a></li>
-                                <li><a href="#"><i class="user icon"></i> About Us</a></li>
+                                <li><a href="/Hospital/Main?action=aboutus"><i class="user icon"></i> About Us</a></li>
                                 <li><a href="#"><i class="treatment icon"></i> Services</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="openid icon"></i>Facilities</a>
@@ -141,6 +141,16 @@
                                         <li><a href="/Hospital/Main">Test Reports</a></li>
                                     </ul>
                                 </li>
+                                <c:if test="${user.typeId == '3'}">
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="heartbeat icon"></i>patient</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Hospital/Main?action=medication">Medications</a></li>
+                                        <li><a href="/Hospital/Main?action=reports">Reports</a></li>
+                                        <li><a href="/Hospital/Main?action=clinics">Clinics</a></li>
+                                    </ul>
+                                </li>
+                                </c:if>
                                 <li><a href="#"><i class="help icon"></i> Help</a></li>
                             </ul>          
                             <c:choose>
