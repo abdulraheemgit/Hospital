@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html77; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,9 +7,7 @@
         <title>Hospital</title>
         <link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/semantic.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/toastr.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/datepicker.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- header-->
@@ -30,8 +27,7 @@
                         </div>
                         <div class="col-md-3">  
                         </div>
-                    </div>
-                </div>
+                    </div>                </div>
                 <div class="col-md-1">   
                 </div>
             </div>
@@ -50,32 +46,14 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navbar-collapse-01">
                             <ul class="nav navbar-nav">           
-                                <li class="active"><a href="/Hospital/MainBackEnd?action=dashboard"><i class="dashboard icon"></i> Dashboard</a></li>
-                                <li><a href="/Hospital/MainBackEnd?action=users"><i class="user icon"></i> Users</a></li>
-                                <li><a href="#"><i class="mail icon"></i> Messages</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fork icon"></i>Functions</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/Hospital/MainBackEnd?action=medicine"><i class="plus icon"></i>Medicine</a></li>
-                                        <li><a href="#"><i class="lab icon"></i>Laboratory</a></li>
-                                        <li><a href="/Hospital/MainBackEnd?action=addreport"><i class="file text icon"></i>Test Reports</a></li>
-                                    </ul>
-                                </li>
-                                <c:if test="${user.typeId == '5' || user.typeId == '1'}">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="first aid icon"></i>Nurse</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="active"><a href="/Hospital/MainBackEnd?action=nursedash"><i class="dashboard icon"></i> Nurse Dashboard</a></li>
-                                            <li><a href="/Hospital/MainBackEnd?action=medilist"><i class="handicap  icon"></i> Patient List</a></li>
-                                            <li><a href="/Hospital/MainBackEnd?action=wardlist"><i class="sidebar  icon"></i> Ward List</a></li>
-                                            <li><a href="/Hospital/MainBackEnd?action=admit"><i class="protect icon"></i> Admit Patient</a></li>
-                                        </ul>
-                                    </li>
-                                </c:if>
+                                <li class="active"><a href="/Hospital/MainBackEnd?action=nursedash"><i class="dashboard icon"></i> Nurse Dashboard</a></li>
+                                <li><a href="/Hospital/MainBackEnd?action=medilist"><i class="user icon"></i> Patient List</a></li>
+                                <li><a href="/Hospital/MainBackEnd?action=wardlist"><i class="user icon"></i> Ward List</a></li>
+                                <li><a href="/Hospital/MainBackEnd?action=admit"><i class="user icon"></i> Admit Patient</a></li>
                                 
-                            </ul>          
+                            </ul>        
                             <ul class="nav navbar-right">
-                                <li><a href="#"><i class="angellist  icon"></i> Hi ${user.username}</a></li>
+                                <li><a href="#"><i class="angellist icon"></i> Hi ${user.username}</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav><!-- /navbar -->

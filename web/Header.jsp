@@ -136,18 +136,18 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="openid icon"></i>Facilities</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/Hospital/Main?action=echannel">e-channel</a></li>
+                                        <li><a href="/Hospital/Main?action=echannel"><i class="world icon"></i>e-channel</a></li>
                                         <li><a href="#">Laboratory</a></li>
                                         <li><a href="/Hospital/Main">Test Reports</a></li>
                                     </ul>
                                 </li>
                                 <c:if test="${user.typeId == '3'}">
                                     <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="heartbeat icon"></i>patient</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="handicap icon"></i>patient</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/Hospital/Main?action=medication">Medications</a></li>
-                                        <li><a href="/Hospital/Main?action=reports">Reports</a></li>
-                                        <li><a href="/Hospital/Main?action=clinics">Clinics</a></li>
+                                        <li><a href="/Hospital/Main?action=medication"><i class="file text outline icon"></i>Medications</a></li>
+                                        <li><a href="/Hospital/Main?action=reports"><i class="file text icon"></i>Reports</a></li>
+                                        <li><a href="/Hospital/Main?action=clinics"><i class="calendar icon"></i>Clinics</a></li>
                                     </ul>
                                 </li>
                                 </c:if>

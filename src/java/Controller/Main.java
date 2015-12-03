@@ -50,6 +50,8 @@ public class Main extends HttpServlet {
             if (action.equals("logout")) {
                 session.invalidate();
                 page = "Index.jsp";
+                request.getRequestDispatcher(page).forward(request, response);
+                return;
             } else if (action.equals("echannel")) {
                 EChannelings ec = new EChannelings();
                 List<Specialization> s = new ArrayList();

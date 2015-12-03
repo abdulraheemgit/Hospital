@@ -6,12 +6,17 @@
 package Controller;
 
 import Beans.Doctor;
+import Beans.InPatient;
+import Beans.Madication;
 import Beans.Medicine;
 import Beans.Specialization;
 import Beans.User;
 import Beans.UserType;
+import Beans.Ward;
+import Model.Admit;
 import Model.EChannelings;
 import Model.Medicines;
+import Model.NurseFunction;
 import Model.Users;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -39,6 +44,13 @@ public class MainBackEnd extends HttpServlet {
     Medicine medicine = null;
     Medicines medicines = null;
     List<Medicine> listMedicines = null;
+    List<Madication> listMedications = null;
+    
+    Admit admit=null;
+    Ward ward=null;
+    InPatient inpatient=null;
+    List<Ward> wardlist=null;
+    List<InPatient> listInPatients=null;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -84,9 +96,52 @@ public class MainBackEnd extends HttpServlet {
             }if(action.equals("logout")){
                 session.invalidate();
                 page = "AdminPanel/Index.jsp";
-//                response.sendRedirect("Index.jsp");
+                request.getRequestDispatcher(page).forward(request, response);
+                return;
+            }else if (action.equals("settings")) {
+                page = "AdminPanel/Settings.jsp";
+            }else if (action.equals("profile")) {
+                page = "AdminPanel/Profile.jsp";
+            }else if (action.equals("dashboard")) {
+                page = "AdminPanel/Dashboard.jsp";
             }
             //end AR
+            
+            //Rana
+            else if (action.equals("medilist")) {
+                NurseFunction pf = new NurseFunction();
+                listMedications = new ArrayList<Madication>();
+                listMedications = pf.getAllMedications();
+                request.setAttribute("listMedications", listMedications);
+                page = "AdminPanel/PatientListrana.jsp";
+                }
+            
+             else if (action.equals("admit")) {
+                page = "AdminPanel/Nurseaddpatient.jsp";
+                admit = new Admit();
+                listInPatients = new ArrayList<>();
+                listInPatients = admit.GetMedicines1();
+                request.setAttribute("admit", listInPatients);
+            }
+             
+             
+              else if(action.equals("wardlist")){
+                NurseFunction pf = new NurseFunction();
+                wardlist = new ArrayList<Ward>();
+                wardlist = pf.getwardlist();
+                request.setAttribute("wardlist", wardlist);
+                page = "AdminPanel/Nursewardlist.jsp";
+                }
+            
+            
+            else if (action.equals("medicine")) {
+                page = "AdminPanel/Medicines.jsp";
+                medicines = new Medicines();
+                listMedicines = new ArrayList<>();
+                listMedicines = medicines.GetMedicines();
+                request.setAttribute("medicines", listMedicines);
+            } 
+            //end Rana
             request.setAttribute("user", (User)session.getAttribute("user"));
             request.getRequestDispatcher(page).forward(request, response);
         }
@@ -120,9 +175,10 @@ public class MainBackEnd extends HttpServlet {
                 
                 session.setAttribute("user", user);
                 request.setAttribute("user", user);
-                if (user.getTypeId().equals("1") || user.getTypeId().equals("2") || user.getTypeId().equals("5")) {
+                System.out.println(user.getTypeId());
+                if (user.getTypeId().equals("1") || user.getTypeId().equals("2") || user.getTypeId().equals("5") || user.getTypeId().equals("6") || user.getTypeId().equals("7") || user.getTypeId().equals("8")) {
                     System.out.println(user.getTypeId());
-                    page = "AdminPanel/Staff.jsp";
+                    page = "AdminPanel/Dashboard.jsp";
                 } else {
                     page = "AdminPanel/Index.jsp";
                     request.setAttribute("error", "Incorect User Type");
@@ -265,7 +321,59 @@ public class MainBackEnd extends HttpServlet {
             }
             //AR end
             
-            
+            //RANAA
+            else if (action.equals("nursesearchpatient")) {
+                String patientId = request.getParameter("patientId");
+                NurseFunction pf = new NurseFunction();
+                listMedications = new ArrayList<Madication>();
+                List<Madication> listMedications1 = new ArrayList<Madication>();
+                if (pf.checkPatientId(patientId) == true) {
+
+                    listMedications = pf.getUserMedications(patientId);
+                    listMedications1 = pf.getMedicationsHistory(patientId);
+                    if (listMedications.isEmpty()) {
+                        System.out.println("Empty");
+                    } else {
+                        System.out.println("Not Empty");
+                        System.out.println(listMedications.size());
+                    }
+                    request.setAttribute("listMedications", listMedications);
+                    request.setAttribute("listMedications1", listMedications1);
+                    page = "AdminPanel/Medications.jsp";
+                } else {
+                    request.setAttribute("errorMessage", "Patient Does Not Exists");
+                    page = "AdminPanel/Nurse.jsp";
+                }
+
+            }else if (action.equals("updateNurse")) {
+                String email = request.getParameter("patientemail");
+                String contactNo = request.getParameter("contactNo");
+                String password = request.getParameter("password");
+                String conformpassword = request.getParameter("conformpassword");
+
+                NurseFunction pf = new NurseFunction();
+                if (pf.emailValidation(email) == true) {
+
+                    if (pf.passwordValidation(password, conformpassword) == true) {
+                        System.out.println(user.getUsername());
+                        if (pf.EditNurse(email, password, user.getUsername()) == true) {
+                            request.setAttribute("updateSuccessMessage", "Succesfully Updated");
+                            page = "AdminPanel/Nursesetting.jsp";
+                        } else {
+                            request.setAttribute("updateErrorMessage", "Can't Update Details. Try again");
+                            page = "AdminPanel/Nursesetting.jsp";
+                        }
+                    } else {
+                        request.setAttribute("passworderrorMessage", "Password Does Not Match");
+                        page = "AdminPanel/Nursesetting.jsp";
+                    }
+
+                } else {
+                    request.setAttribute("emailerrorMessage", "Incorrect Email Address");
+                    page = "AdminPanel/Nursesetting.jsp";
+                }
+            } 
+            //end Ranaa
             
             
             else if(action.equals("viewUser")){// view User 

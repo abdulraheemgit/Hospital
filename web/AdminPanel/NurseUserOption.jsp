@@ -1,10 +1,9 @@
-        
 <div class="ui  labeled icon right inline vertical sidebar menu">
-    <a class="item" href="/Hospital/MainBackEnd?action=profile">
+    <a class="item" href="/Hospital/MainBackEnd?action=nurseprofile">
         <i class="user icon"></i>
         My Profile 
     </a>
-    <a class="item" href="/Hospital/MainBackEnd?action=settings">
+    <a class="item" href="/Hospital/MainBackEnd?action=nursesettings">
         <i class="settings icon"></i>
         Settings
     </a>
@@ -17,5 +16,3 @@
         Sign Out
     </a>
 </div>
-
-
