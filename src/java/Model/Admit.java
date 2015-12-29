@@ -20,13 +20,13 @@ public class Admit {
     PreparedStatement pstmt;
     Statement stmt;
 
-    public InPatient AddMedicine(InPatient medicine) {
+    public InPatient AdmitPatient(InPatient medicine) {
 
         InPatient medicine1 = new InPatient();
         conn = new DbConn();
         conn.connectDB();
 
-        String sql = "INSERT INTO tbloutpatient (patientid_fk,dateadmitted) values(?,?)";
+        String sql = "INSERT INTO tblinpatient (patientid_fk,dateadmitted) values(?,?)";
         try {
             System.out.println(medicine.getDateAdmitted());
             pstmt = conn.conn.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class Admit {
         conn = new DbConn();
         conn.connectDB();
 
-        String sql = "UPDATE tbloutpatient set patientid_fk = ?, datedmitted = ? where medicineid = ?";
+        String sql = "UPDATE tblinpatient set patientid_fk = ?, datedmitted = ? where medicineid = ?";
         try {
             pstmt = conn.conn.prepareStatement(sql);
             pstmt.setString(1, medicine.getPatientId());
@@ -73,7 +73,7 @@ public class Admit {
         conn = new DbConn();
         conn.connectDB();
 
-        String sql = "DELETE  from tbloutpatient where outpatientid = ?";
+        String sql = "DELETE  from tblinpatient where outpatientid = ?";
         try {
             pstmt = conn.conn.prepareStatement(sql);
             pstmt.setString(1, medicine.getInPatientId());
@@ -93,7 +93,7 @@ public class Admit {
         List<InPatient> medicines = new ArrayList<>();
         conn = new DbConn();
         conn.connectDB();
-        String sql = "SELECT * From tbloutpatient";
+        String sql = "SELECT * From tblinpatient";
         try {
             stmt = conn.conn.createStatement();
             rs = stmt.executeQuery(sql);

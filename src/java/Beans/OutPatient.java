@@ -6,7 +6,7 @@ public class OutPatient {
     private String outPatientId ="";
     private String dateVisited ="";
     private String patientId ="";
-
+    
     public String getOutPatientId() {
         return outPatientId;
     }

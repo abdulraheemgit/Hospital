@@ -9,7 +9,8 @@
                 <div class="twelve wide column">
                     <div class="row"  style="margin-top: 15px; margin-bottom: 10px;">
                         <div class="col-sm-12 col-md-5">
-                            <img src="IMAGES/pills.jpg" style="width: 400px;">
+                            <img class="ui centered medium image" src="IMAGES/pills.jpg">
+                            <!--<img src="IMAGES/pills.jpg" style="width: 400px;">-->
                         </div>
                         <div class="col-sm-12 col-md-7" >
                             <h2>Add Medicine</h2>

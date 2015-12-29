@@ -103,7 +103,8 @@ public class EChannelings {
                 if(min.equals("0")){
                     min2 = time;
                     dt.setNextSession(time);
-                }else{
+                }
+                else{
                     min2 = String.valueOf(Integer.parseInt(min1)+Integer.parseInt(min));
                     time = time.substring(0,time.length()-2);
                     dt.setNextSession(time+min2);

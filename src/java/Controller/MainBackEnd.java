@@ -322,7 +322,29 @@ public class MainBackEnd extends HttpServlet {
             //AR end
             
             //RANAA
-            else if (action.equals("nursesearchpatient")) {
+            else if (action.equals("addinpatient")) {
+                inpatient = new InPatient();
+                String json = null;
+                listInPatients = new ArrayList<>();
+                InPatient medicine1 = new InPatient();
+                String name = request.getParameter("patientId");
+                String dosage = request.getParameter("dateAdmitted");
+                if (name.isEmpty() || dosage.isEmpty()) {
+                    inpatient.setError("Fields cannot be empty");
+                } else {
+                    inpatient.setPatientId(name);
+                    inpatient.setDateAdmitted(dosage);
+                    admit = new Admit();
+                    medicine1 = admit.AdmitPatient(inpatient);
+                    if (medicine1.getSuccess().equals("1")) {
+                        listInPatients = admit.GetMedicines1();
+                    }
+                    json = new Gson().toJson(listInPatients);
+                }
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }else if (action.equals("nursesearchpatient")) {
                 String patientId = request.getParameter("patientId");
                 NurseFunction pf = new NurseFunction();
                 listMedications = new ArrayList<Madication>();

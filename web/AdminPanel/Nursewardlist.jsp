@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="AdminPanel/Header.jsp"></jsp:include>
+<jsp:include page="Header.jsp"></jsp:include>
     <div class="contentbody" style="background-color: #F7F7F7">
     <jsp:include page="NurseUserOption.jsp"></jsp:include>
         <div class="pusher">
