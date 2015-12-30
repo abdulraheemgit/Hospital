@@ -10,7 +10,6 @@
                     <div class="row"  style="margin-top: 15px; margin-bottom: 10px;">
                         <div class="col-sm-12 col-md-5">
                             <img class="ui centered medium image" src="IMAGES/AdmitPatient.png">
-                            <!--<img class="" src="IMAGES/Admit.png" >-->
                         </div>
                         <div class="col-sm-12 col-md-7" >
                             <h2>Admit Patient</h2>
